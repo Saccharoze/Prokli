@@ -18,7 +18,7 @@ npx expo start
 | `EXPO_PUBLIC_APPWRITE_DATABASE_ID` | Databases, the database |
 | `EXPO_PUBLIC_APPWRITE_USER_COLLECTION_ID` | the `users` collection's settings |
 | `EXPO_PUBLIC_APPWRITE_PHOTO_COLLECTION_ID` | the `photos` collection's settings |
-| `EXPO_PUBLIC_APPWRITE_DEFI_COLLECTION_ID` | the `defis` collection's settings |
+| `EXPO_PUBLIC_APPWRITE_DEFI_COLLECTION_ID` | the `defis` (challenges) collection's settings |
 | `EXPO_PUBLIC_APPWRITE_STORAGE_ID` | Storage, the bucket |
 
 `.env` stays out of git. Expo builds the `EXPO_PUBLIC_` values into the app, so anyone with the app can read them:

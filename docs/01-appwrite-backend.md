@@ -2,14 +2,14 @@
 
 The app needs an Appwrite project (Cloud, or self-hosted 1.3 or later for relationships) with one database
 of three collections, one storage bucket, and the app registered as a platform. Everything is created by hand
-in the Appwrite console, challenges included: the app never creates collections or `defis` documents.
+in the Appwrite console, challenges included: the app never creates collections or `defis` (challenges) documents.
 
 ```mermaid
 flowchart LR
   U["users"] -- "photosvoted / usersphotosvoted<br/>two-way, many-to-many" --- P["photos"]
   U -- "reported<br/>one-way" --> P
   P -- "users (author)<br/>one-way" --> U
-  D["defis"] -. "name = photos.title" .- P
+  D["defis (challenges)"] -. "name = photos.title" .- P
 ```
 
 Write down each ID while creating things: they go into `.env` ([Run and build](02-run-and-build.md)).
@@ -25,7 +25,7 @@ Write down each ID while creating things: they go into `.env` ([Run and build](0
 | `avatar` | url, required | an initials picture at sign-up, then the photo picked on the profile |
 | `accountId` | string, required | `$id` of the Appwrite account, to find the document after sign-in |
 | `points` | integer, default 0 | |
-| `team` | string | `montagne`, `ocean` or `soleil`; empty until the player's first visit to the leaderboard, where a roulette picks one |
+| `team` | string | `montagne` (mountain), `ocean` or `soleil` (sun); empty until the player's first visit to the leaderboard, where a roulette picks one |
 | `photosvoted` | relationship with `photos`, two-way, many-to-many | photos this player voted on; creating it also creates `photos.usersphotosvoted` |
 | `reported` | relationship with `photos`, one-way, many-to-many | photos this player reported, hidden from their feed |
 
@@ -37,7 +37,7 @@ Write down each ID while creating things: they go into `.env` ([Run and build](0
 | `photo` | url | view URL of the file in storage |
 | `users` | relationship with `users`, one-way, many-to-one | the author |
 | `points` | integer | copied from the challenge |
-| `valide`, `refuse` | integer | vote counts, 0 at posting |
+| `valide` (accepted), `refuse` (refused) | integer | vote counts, 0 at posting |
 | `done` | boolean | `false` at posting, `true` once the vote accepted it |
 | `reports` | integer, default 0 | |
 
@@ -51,11 +51,11 @@ deleting a photo would delete its author.
 |---|---|---|
 | `name` | string, required | the challenge text, shown on the card; keep names unique, a photo is matched to its challenge by name |
 | `points` | integer, required | |
-| `categorie` | string, required | `sport`, `bouffe`, `adrenaline`, `musee` or `parc-test` |
+| `categorie` (category) | string, required | `sport`, `bouffe` (food), `adrenaline`, `musee` (museum) or `parc-test` (test park) |
 
 A category value is also the end of its screen's route: `/category/sport` lists the `defis` with
 `categorie = sport` whose `name` the player hasn't posted yet. `musee` and `parc-test` are the challenges of
-two partner places, listed under "NOS PARTENAIRES" in the app (placeholder names). The categories and partners
+two partner places, listed under "NOS PARTENAIRES" (our partners) in the app (placeholder names). The categories and partners
 shown are in `constants/categories.js`.
 
 ## Storage

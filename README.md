@@ -14,13 +14,13 @@ and it closes the votes and counts the points itself.
 ```mermaid
 flowchart LR
   subgraph PHONE["Phone: Prokli app"]
-    DEF["Défis tab<br/>categories, camera"]
+    DEF["Défis (challenges) tab<br/>categories, camera"]
     HOME["Home feed<br/>vote, report"]
-    RANK["Classement tab<br/>leaderboard, roulette"]
+    RANK["Classement (leaderboard) tab<br/>teams, users, roulette"]
   end
   subgraph AW["Appwrite"]
     AUTH["Accounts"]
-    DB[("Database<br/>users, photos, defis")]
+    DB[("Database<br/>users, photos, defis (challenges)")]
     ST[("Storage<br/>photos, avatars")]
   end
   PHONE -- "sign-in" --> AUTH
@@ -32,7 +32,7 @@ flowchart LR
 
 ## How a challenge goes
 
-1. In the Défis (challenges) tab, the player picks a category, then a challenge from the `defis` collection
+1. In the Défis (challenges) tab, the player picks a category, then a challenge from the `defis` (challenges) collection
    they haven't posted a photo for yet.
 2. The camera opens. The photo goes to storage, plus a `photos` document with `done: false`.
    A long press records a video instead; it is saved to the phone's gallery, not posted.
@@ -42,7 +42,7 @@ flowchart LR
    "Validé" as "Refusé", the photo stays (`done: true`) and the author gets the challenge's points; otherwise its
    document is deleted. A photo nobody voted on passes (0 against 0).
 5. The first visit to the Classement (leaderboard) tab spins a roulette that puts the player in a team:
-   montagne, ocean or soleil. A team's score is the sum of its players' points.
+   montagne (mountain), ocean or soleil (sun). A team's score is the sum of its players' points.
 
 The 10th report deletes a photo. The details, and the weak points of closing votes on the phones,
 are in [The Appwrite backend](docs/01-appwrite-backend.md).
