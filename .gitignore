@@ -1,0 +1,36 @@
+# Editors and OS
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+# Secrets and local settings (.env.example is the template to copy)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.keystore
+*.jks
+
+# Disk images and archives (link to official sources instead)
+*.img
+*.iso
+*.zip
+*.tar
+*.tar.*
+*.tgz
+*.apk
+
+# Node and Expo build output
+node_modules/
+.expo/
+dist/
+web-build/
+expo-env.d.ts
+# native folders made by `npx expo prebuild` (regenerated from app.json)
+/android/
+/ios/
+*.aab
