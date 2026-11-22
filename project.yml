@@ -1,0 +1,13 @@
+# Website card: read by the website at build time. Keep it short.
+slug: Prokli
+section: phone
+status: done
+tags: [react-native, expo, appwrite, mobile-app, typescript]
+repo: "https://github.com/Saccharoze/Prokli"
+image: docs/img/screens-2024.png
+fr:
+  title: "Prokli, une appli de défis entre amis"
+  summary: "Application mobile de défis de vacances : on choisit un défi, on poste une photo en preuve, les autres joueurs votent, et les points vont au joueur et à son équipe. React Native, Expo, Appwrite."
+en:
+  title: "Prokli, a challenge app for friends"
+  summary: "Phone app of holiday challenges: pick a challenge, post a photo as proof, the other players vote, and the points go to you and your team. React Native, Expo and Appwrite."
